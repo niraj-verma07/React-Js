@@ -13,4 +13,4 @@ If you are developing a production application, we recommend using TypeScript wi
 
 
 ## Install Nano Id 
-npm inatall nanoid
+npm install nanoid
