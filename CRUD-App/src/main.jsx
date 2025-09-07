@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 createRoot(document.getElementById("root")).render(
   <>
     <App />
-    <ToastContainer position="top-center"/> //react Toastyfy
+    <ToastContainer position="top-center" />
+    {/* React Toastify configuration for using it */}
   </>
 );
