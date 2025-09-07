@@ -64,30 +64,20 @@ const Create = (props) => {
     settitle("");
   };
 
-  const buttoncss = {
-    color: "white",
-    backgroundColor: "black",
-    border: "none",
-    borderRadius: "10px",
-    cursor: "pointer",
-    padding: "10px 15px",
-    fontSize: "16px",
-  };
   return (
-    <>
-      <h1>Create Task</h1>
+    <div className="border w-[60%] p-10 mx-auto">
+      <h1 className="mb-10 text-5xl font-thin">Set <span className="text-red-400">Reminders</span> for <br /> tasks</h1>
       <form onSubmit={SubmitHandler}>
-        <input
+        <input className="border-b wifull text-2xl font-thin outline-0"
           type="text"
+          placeholder="Title"
           value={title}
           onChange={(e) => settitle(e.target.value)}
         />
         <br /> <br />
-        <button style={buttoncss} type="submit">
-          Create Todo
-        </button>
+        <button className="mt-5 text-xl px-10 py-2 border rounded" type="submit">Create Todo</button>
       </form>
-    </>
+    </div>
   );
 };
 
