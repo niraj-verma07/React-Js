@@ -50,9 +50,9 @@ const Create = (props) => {
   const SubmitHandler = (e) => {
     e.preventDefault();
     const newTodo = {
-      id: nanoid(),
+      id: nanoid(), //nanoid generates random id
       title: title,
-      isCompleted: true,
+      isCompleted: false,
     };
 
     let copytodos = [...todos];
