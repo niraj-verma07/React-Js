@@ -6,7 +6,7 @@ import Wrapper from "./Wrapper.jsx";
 
 createRoot(document.getElementById("root")).render(
   <Wrapper>
-    {/* Higher Order Components */}
+    {/* Higher Order Components : componenets which take componenets as props or arguments or return other componenets */}
     <App />
     <ToastContainer position="top-center" />
     {/* React Toastify configuration for using it */}
