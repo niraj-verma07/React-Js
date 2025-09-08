@@ -26,8 +26,6 @@ import { todocontext } from "../Wrapper";
 const Read = (props) => {
   const [todos, settodos] = useContext(todocontext);
 
-  
-
   const DeleteHandler = (id) => {
     // console.log("Delete Pressed");
     console.log(id);
