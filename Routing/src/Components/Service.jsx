@@ -7,13 +7,20 @@ const Service = () => {
       <h1 className="text-5xl font-thin mb-3">Service</h1>
       <button
         onClick={() => navigate("/service/detail")}
-        className="bg-white text-black px-4 py-2 rounded mt-5"
+        className="bg-white text-black px-4 py-2 rounded mt-5 mr-10"
       >
         More Details
       </button>
+
+      <button
+        onClick={() => navigate("/service/update")}
+        className="bg-white text-black px-4 py-2 rounded mt-5"
+      >
+        More Update
+      </button>
       <hr className="my-10" />
       <Outlet />
-      {/* Use to show the Components inside same router */}
+      {/* Use to show the Components inside same components */}
     </div>
   );
 };
