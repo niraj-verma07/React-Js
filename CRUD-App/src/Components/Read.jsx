@@ -19,11 +19,14 @@
 
 //Todos App Code Goes Here
 
+import { useContext } from "react";
 import { toast } from "react-toastify";
+import { todocontext } from "../Wrapper";
 
 const Read = (props) => {
-  const todos = props.todos;
-  const settodos = props.settodos;
+  const [todos, settodos] = useContext(todocontext);
+
+  
 
   const DeleteHandler = (id) => {
     // console.log("Delete Pressed");
