@@ -2,8 +2,11 @@ import { nanoid } from "nanoid";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { recipecontext } from "../Context/RecipeContext";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
+  const navigate = useNavigate();
   const { data, setData } = useContext(recipecontext);
   const { register, handleSubmit, reset } = useForm();
 
@@ -13,11 +16,12 @@ const Create = () => {
 
     // const copydata = [...data];
     // copydata.push(recipe);
-    //   setData(copydata);  //Iska Sort niche wala hai 
-      
-      setData([...data, recipe])
+    //   setData(copydata);  //Iska Sort niche wala hai
 
+    setData([...data, recipe]);
+    toast.success("New Recipe Created!");
     reset();
+    navigate("/recipes");
   };
   return (
     <form onSubmit={handleSubmit(SubmitHandler)}>
@@ -47,21 +51,21 @@ const Create = () => {
 
       <textarea
         className="block border-b outline-0 p-2"
-        {...register("description")}
+        {...register("desc")}
         placeholder="Write description"
       ></textarea>
       <small className="text-red-400">Error</small>
 
       <textarea
         className="block border-b outline-0 p-2"
-        {...register("ingredients")}
+        {...register("ingr")}
         placeholder="Write Ingredients"
       ></textarea>
       <small className="text-red-400">Error</small>
 
       <textarea
         className="block border-b outline-0 p-2"
-        {...register("instructions")}
+        {...register("inst")}
         placeholder="Write Instructions"
       ></textarea>
       <small className="text-red-400">Error</small>
@@ -70,9 +74,10 @@ const Create = () => {
         className="block border-b outline-0 p-2 bg-gray-800"
         {...register("category")}
       >
-        <option value="cat-1">Category 1</option>
-        <option value="cat-2">Category 2</option>
-        <option value="cat-3">Category 3</option>
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="super">Supper</option>
+        <option value="dinner">Dinner</option>
       </select>
       <small className="text-red-400">Error</small>
 
