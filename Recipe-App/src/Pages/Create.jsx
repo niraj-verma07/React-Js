@@ -27,11 +27,11 @@ const Create = () => {
     <form onSubmit={handleSubmit(SubmitHandler)}>
       <input
         className="block border-b outline-0 p-2"
-        {...register("url")}
+        {...register("image")}
         type="url"
         placeholder="Enter image url"
       />
-      <small className="text-red-400">Error</small>
+      <small className="text-red-400">Error will show like this</small>
 
       <input
         className="block border-b outline-0 p-2"
@@ -39,7 +39,6 @@ const Create = () => {
         type="text"
         placeholder="Recipe title"
       />
-      <small className="text-red-400">Error</small>
 
       <input
         className="block border-b outline-0 p-2"
@@ -47,28 +46,24 @@ const Create = () => {
         type="text"
         placeholder="Chef Name"
       />
-      <small className="text-red-400">Error</small>
 
       <textarea
         className="block border-b outline-0 p-2"
         {...register("desc")}
         placeholder="Write description"
       ></textarea>
-      <small className="text-red-400">Error</small>
 
       <textarea
         className="block border-b outline-0 p-2"
         {...register("ingr")}
         placeholder="Write Ingredients"
       ></textarea>
-      <small className="text-red-400">Error</small>
 
       <textarea
         className="block border-b outline-0 p-2"
         {...register("inst")}
         placeholder="Write Instructions"
       ></textarea>
-      <small className="text-red-400">Error</small>
 
       <select
         className="block border-b outline-0 p-2 bg-gray-800"
@@ -79,7 +74,6 @@ const Create = () => {
         <option value="super">Supper</option>
         <option value="dinner">Dinner</option>
       </select>
-      <small className="text-red-400">Error</small>
 
       <button className="mt-5 block bg-gray-900 px-4 py-2 rounded">
         Save Recipe
