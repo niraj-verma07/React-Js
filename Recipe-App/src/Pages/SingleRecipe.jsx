@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { recipecontext } from "../Context/RecipeContext";
 import { useForm } from "react-hook-form";
@@ -39,9 +39,39 @@ const SingleRecipe = () => {
     toast.success("Recipe Deleted");
     navigate("/recipes");
   };
+
+  const [favorite, setfavorite] = useState(
+    JSON.parse(localStorage.getItem("fav")) || []
+  );
+
+  const favHandler = () => {
+    const copyfav = [...favorite];
+    copyfav.push(recipe);
+    setfavorite(copyfav);
+    localStorage.setItem("fav", JSON.stringify(copyfav));
+  };
+
+  const UnfavHandler = () => {
+    const filterfav = favorite.filter((f) => f.id != recipe?.id);
+    setfavorite(filterfav);
+    localStorage.setItem("fav", JSON.stringify(filterfav));
+  };
+
   return recipe ? (
     <div className="w-full flex">
-      <div className="left w-1/2 p-2">
+      <div className="relative left left w-1/2 p-10">
+        {favorite.find((f) => f.id == recipe.id) ? (
+          <i
+            onClick={UnfavHandler}
+            className="absolute right-[5%] text-3xl text-red-400 ri-heart-fill"
+          ></i>
+        ) : (
+          <i
+            onClick={favHandler}
+            className="absolute right-[5%] text-3xl text-red-400 ri-heart-line"
+          ></i>
+        )}
+
         <h1 className="text-5xl font-black">{recipe.title}</h1>
         <img className="h-[20vh]" src={recipe.image} alt="" />
         <h2>{recipe.chef}</h2>
