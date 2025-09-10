@@ -13,27 +13,29 @@ const SingleRecipe = () => {
   //   console.log(recipe);
   const { register, handleSubmit, reset } = useForm({
     defaultValues: {
-      title: recipe.title,
-      chef: recipe.chef,
-      image: recipe.image,
-      inst: recipe.inst,
-      desc: recipe.desc,
-      ingr: recipe.ingr,
+      title: recipe?.title, // ? -> check recipe aya hai tab title show karo (ternary operator bhi use kar skte hai)
+      chef: recipe?.chef,
+      image: recipe?.image,
+      inst: recipe?.inst,
+      desc: recipe?.desc,
+      ingr: recipe?.ingr,
     },
   });
 
-  const SubmitHandler = (recipe) => {
+  const UpdateHandler = (recipe) => {
     const index = data.findIndex((recipe) => params.id == recipe.id);
     const copydata = [...data];
     copydata[index] = { ...copydata[index], ...recipe };
     // console.log(index);
     setData(copydata);
+    localStorage.setItem("recipes", JSON.stringify(copydata));
     toast.success("Recipe Updated");
   };
 
   const deleteHandler = () => {
     const filterdata = data.filter((r) => r.id != params.id);
     setData(filterdata);
+    localStorage.setItem("recipes", JSON.stringify(filterdata)); //set local strorage
     toast.success("Recipe Deleted");
     navigate("/recipes");
   };
@@ -46,7 +48,7 @@ const SingleRecipe = () => {
         <p>{recipe.desc}</p>
       </div>
 
-      <form className="w-1/2 p-2" onSubmit={handleSubmit(SubmitHandler)}>
+      <form className="w-1/2 p-2" onSubmit={handleSubmit(UpdateHandler)}>
         <input
           className="block border-b outline-0 p-2"
           {...register("image")}

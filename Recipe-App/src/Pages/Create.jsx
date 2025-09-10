@@ -14,11 +14,12 @@ const Create = () => {
     recipe.id = nanoid();
     // console.log(recipe);
 
-    // const copydata = [...data];
-    // copydata.push(recipe);
-    //   setData(copydata);  //Iska Sort niche wala hai
+    const copydata = [...data];
+    copydata.push(recipe);
+    setData(copydata); 
 
-    setData([...data, recipe]);
+    localStorage.setItem("recipes", JSON.stringify(copydata)); //set data in local storage
+
     toast.success("New Recipe Created!");
     reset();
     navigate("/recipes");
