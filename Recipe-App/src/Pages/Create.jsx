@@ -8,7 +8,12 @@ import { useNavigate } from "react-router-dom";
 const Create = () => {
   const navigate = useNavigate();
   const { data, setData } = useContext(recipecontext);
-  const { register, handleSubmit, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
   const SubmitHandler = (recipe) => {
     recipe.id = nanoid();
@@ -16,7 +21,7 @@ const Create = () => {
 
     const copydata = [...data];
     copydata.push(recipe);
-    setData(copydata); 
+    setData(copydata);
 
     localStorage.setItem("recipes", JSON.stringify(copydata)); //set data in local storage
 
@@ -28,11 +33,14 @@ const Create = () => {
     <form onSubmit={handleSubmit(SubmitHandler)}>
       <input
         className="block border-b outline-0 p-2"
-        {...register("image")}
+        {...register("image", { required: "Image cannot be empty" })}
         type="url"
         placeholder="Enter image url"
       />
-      <small className="text-red-400">Error will show like this</small>
+
+      {errors && errors.image && errors.image.message && (
+        <small className="text-red-400"> {errors.image.message}</small>
+      )}
 
       <input
         className="block border-b outline-0 p-2"
