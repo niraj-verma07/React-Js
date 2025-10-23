@@ -43,6 +43,7 @@ const App = () => {
           placeholder="Enter Notes Heading"
           className="px-5 w-full font-medium py-2 border-2 outline-none rounded "
           value={title}
+          required
           onChange={(e) => {
             setTitle(e.target.value);
           }}
@@ -54,6 +55,7 @@ const App = () => {
           className="px-5 w-full font-medium h-32 py-2 flex items-start flex-row border-2 outline-none  rounded "
           placeholder="Write Details here"
           value={details}
+          required
           onChange={(e) => {
             setDetails(e.target.value);
           }}
@@ -63,7 +65,7 @@ const App = () => {
           Add Note
         </button>
       </form>
-      <div className="lg:w-1/2 lg:border-l-2  p-10">
+      <div className="lg:w-1/2 lg:border-l-2  p-10 h-screen">
         <h1 className="text-4xl font-bold">Recent Notes</h1>
         <div className="flex flex-wrap items-start justify-start gap-5 mt-6 h-[90%] overflow-auto">
           {task.map(function (elem, idx) {
