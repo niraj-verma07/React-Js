@@ -50,10 +50,20 @@ const App = () => {
 
       <div className="flex flex-wrap gap-4 p-2">{printUserData}</div>
       <div className="flex justify-center items-center p-4 gap-6">
-        <button className="bg-amber-400 text-black px-4 py-2 rounded font-semibold text-sm cursor-pointer active:scale-95">
+        <button
+          onClick={() => {
+            console.log("Prev");
+          }}
+          className="bg-amber-400 text-black px-4 py-2 rounded font-semibold text-sm cursor-pointer active:scale-95"
+        >
           Previous
         </button>
-        <button className="bg-amber-400 text-black px-4 py-2 rounded font-semibold text-sm cursor-pointer active:scale-95">
+        <button
+          onClick={() => {
+            console.log("Next");
+          }}
+          className="bg-amber-400 text-black px-4 py-2 rounded font-semibold text-sm cursor-pointer active:scale-95"
+        >
           Next
         </button>
       </div>
