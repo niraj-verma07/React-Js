@@ -19,7 +19,7 @@ const Mainroutes = () => {
         <Route path="/service/detail" element={<ServiceDetails />} />
         <Route path="/service/update" element={<ServiceUpdate />} />
       </Route>
-      {/* Service ke sndar hi service details  open ho jayegi aur iske liye <Outlet> use karna padta hai details wale components me*/}
+      {/* Service ke andar hi service details  open ho jayegi aur iske liye <Outlet> use karna padta hai details wale components me*/}
 
       <Route path="/about" element={<About />} />
     </Routes>
