@@ -19,7 +19,6 @@
 
 // export default App;
 
-import { useState } from "react";
 import Create from "./components/Create";
 import Read from "./Components/Read";
 
