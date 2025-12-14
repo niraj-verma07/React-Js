@@ -1,5 +1,8 @@
 import Card from "./components/card";
 
+
+
+
 const App = () => {
   const jobOpenings = [
     {
